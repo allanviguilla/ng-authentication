@@ -1,33 +1,11 @@
-<div class="w-screen h-28 bg-ccsd-blue flex justify-between">
-  <div class="flex items-center">
-    <img
-      class="bg-white rounded h-[68px] p-2 mx-3"
-      src="https://focalpoint.ccsd.net/img/ccsd-logo-blue-h68.png"
-    />
-    <h1 class="font-normal text-white">Instructional Focal Point</h1>
-  </div>
-  <div class="flex items-center">
-    <ul class="text-white list-style-none inline-flex">
-      <li class="px-2">Tools</li>
-      <li class="px-2">Analytics</li>
-      <li class="px-2">Staff</li>
-      <li class="px-2">
-        <!-- This is the wrong implementation -->
-        <!-- <img src="https://{{ pic }}" /> -->
-
-        <!-- Instead bind the src to our pic variable -->
-      </li>
-    </ul>
-    <img class="rounded-full scale-50 -ml-7" [src]="userPic" />
-  </div>
-</div>
+<app-navbar [name]="userName" [img]="userImg" [email]="userEmail"></app-navbar>
 <div class="grid place-items-center p-5">
-  <img [src]="userPic" />
-  <h1>Hey {{ name }}! {{ userPic }}</h1>
+  <img [src]="userImg" />
+  <h1>Hey {{ userName }}! {{ userImg }}</h1>
   <button
     class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
     (click)="signOut()"
   >
-    Sign Out {{ name }}
+    Sign Out {{ userName }}
   </button>
 </div>

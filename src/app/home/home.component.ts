@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { AuthService } from '../services/auth.service';
 
+import { NavbarComponent } from '../navbar/navbar.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -14,8 +16,9 @@ export class HomeComponent {
   //inject the auth service to use Sign Out method
   auth = inject(AuthService);
 
-  name = JSON.parse(sessionStorage.getItem('loggedInUser')!).name;
-  userPic = JSON.parse(sessionStorage.getItem('loggedInUser')!).picture;
+  userName = JSON.parse(sessionStorage.getItem('loggedInUser')!).name;
+  userImg = JSON.parse(sessionStorage.getItem('loggedInUser')!).picture;
+  userEmail = JSON.parse(sessionStorage.getItem('loggedInUser')!).email;
 
   signOut() {
     sessionStorage.removeItem('loggedInUser');
